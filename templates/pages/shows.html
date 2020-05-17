@@ -1,0 +1,19 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Fyyur | Shows{% endblock %}
+{% block content %}
+<style>
+</style>
+<div class="row shows">
+    {% for show in shows %}
+    <div class="col-sm-4">
+        <div class="tile tile-show" style="padding-bottom: 13px;">
+            <h3>{{ show.name }}</h3>
+            <img src="{{ show.artist_image_link }}" alt="Artist Image" />
+            <h5>Date: {{ show.date }} at {{ show.start_time }}</h5>
+            <h5>Artist: <a href="/artists/{{ show.artist_id }}">{{ show.artist_name }}</a></h5>
+            <h5>Venue: <a href="/venues/{{ show.venue_id }}">{{ show.venue_name }}</a></h5>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

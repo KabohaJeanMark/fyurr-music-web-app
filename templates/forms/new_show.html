@@ -1,0 +1,44 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Show Listing{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form">
+     {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+      <h3 class="form-heading">List a new show</h3>
+      <div class="form-group">
+      <label for="show_name">Name</label>
+      <small>Please Enter the name of the show</small>
+      {{form.name(class_ = 'form-control', autofocus = true)}}
+      </div>
+
+      <div class="form-group">
+        <label for="artist_id">Artist ID</label>
+        <small>ID can be found on the Artist's Page</small>
+        {{ form.artist_id(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+        <label for="venue_id">Venue ID</label>
+        <small>ID can be found on the Venue's Page</small>
+        {{ form.venue_id(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+      <label for="start_time"> Start Time</label>
+      {{form.start_time(class_ = 'form-control',placeholder='4pm' , autofocus = true)}}
+      </div>
+      <div class="form-group">
+      <label for="end_time">End Time</label>
+      {{form.end_time(class_ = 'form-control', placeholder='10pm', autofocus = true)}}
+      </div>
+      <div class="form-group">
+          <label for="date">Date</label>
+          {{ form.date(class_ = 'form-control', placeholder='example: YYYY-MM-DD', autofocus = true) }}
+        </div>
+      <div class="form-group">
+      <label for="fee">Fee</label>
+      {{form.fee(class_ = 'form-control', autofocus = true)}}
+      </div>
+      <input type="submit" value="Create Show" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}
